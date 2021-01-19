@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# decide which os
+OS=""
+if [ -f /etc/manjaro-release ] ; then
+	OS="manjaro"
+else
+	OS="ubuntu"
+fi
+
 # Install zsh
 echo "[+] Install zsh...."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -13,7 +21,11 @@ echo -e "\n"
 
 # Install powerline fonts
 echo "[+] Installing powerline fonts...."
-sudo apt install fonts-powerline
+if [ "$OS" == "ubuntu" ] ; then
+	sudo apt install fonts-powerline
+elif [ "$OS" == "manjaro" ] ; then
+	sudo pacman -S powerline-fonts
+fi
 echo -e "\n"
 
 # Configuring pathogen
@@ -21,6 +33,8 @@ echo "- Configuring pathogen..."
 echo -e \
 "execute pathogen#infect()
 syntax on
+filetype on
+filetype plugin on
 filetype plugin indent on
 set incsearch
 set number
