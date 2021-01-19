@@ -24,6 +24,7 @@ syntax on
 filetype plugin indent on
 set incsearch
 set number
+set updatetime=100
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
@@ -38,3 +39,8 @@ echo -e "\n"
 
 echo "[+] Installing Bundle: Indentline..."
 git clone https://github.com/yggdroot/indentline
+echo -e "\n"
+
+echo "[+] Installing Bundle: GitGutter..."
+git clone https://github.com/airblade/vim-gitgutter
+echo -e "\n"
