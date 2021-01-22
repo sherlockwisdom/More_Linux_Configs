@@ -1,11 +1,20 @@
 #!/bin/bash
 
+
+
 # decide which os
 OS=""
 if [ -f /etc/manjaro-release ] ; then
 	OS="manjaro"
 else
 	OS="ubuntu"
+fi
+
+# Install Audio arch i3
+if [ "$OS" == "manjaro" ] ; then
+	# TODO: Show all the card options for user to choose which one to install
+	sudo pacman -S asoundconf
+	asoundconf set-default-card PCH
 fi
 
 # Install zsh
