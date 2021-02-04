@@ -13,9 +13,12 @@ fi
 # Install Audio arch i3
 if [ "$OS" == "manjaro" ] ; then
 	# TODO: Show all the card options for user to choose which one to install
-	sudo pacman -S asoundconf
+	sudo pacman -S asoundconf rofi
 	asoundconf set-default-card PCH
 fi
+
+echo ">> Add the following line for rofi..."
+echo "bindsym $super+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8'"
 
 # Install zsh
 echo "[+] Install zsh...."
