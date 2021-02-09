@@ -18,7 +18,7 @@ if [ "$OS" == "manjaro" ] ; then
 fi
 
 echo ">> Add the following line for rofi..."
-echo "bindsym $super+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8'"
+echo "bindsym $mod+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8'"
 
 # Install zsh
 echo "[+] Install zsh...."
