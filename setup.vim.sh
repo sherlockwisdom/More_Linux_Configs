@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 # decide which os
 OS=""
 if [ -f /etc/manjaro-release ] ; then
@@ -11,19 +9,21 @@ else
 fi
 
 # Install Audio arch i3
-if [ "$OS" == "manjaro" ] ; then
-	# TODO: Show all the card options for user to choose which one to install
-	sudo pacman -S asoundconf rofi
-	asoundconf set-default-card PCH
+if [ "$1" == "-all" ] ; then
+	if [ "$OS" == "manjaro" ] ; then
+		# TODO: Show all the card options for user to choose which one to install
+		sudo pacman -S asoundconf rofi
+		asoundconf set-default-card PCH
+	fi
+
+	echo ">> Add the following line for rofi..."
+	echo "bindsym $mod+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8'"
+
+	# Install zsh
+	echo "[+] Install zsh...."
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	echo -e "\n"
 fi
-
-echo ">> Add the following line for rofi..."
-echo "bindsym $mod+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8'"
-
-# Install zsh
-echo "[+] Install zsh...."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-echo -e "\n"
 
 # Install pathogen
 echo "[+] Installing pathogen...."
@@ -49,7 +49,7 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 set incsearch
-set number
+set relativenumber
 set updatetime=100
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
