@@ -34,7 +34,7 @@ echo -e "\n"
 # Install powerline fonts
 echo "[+] Installing powerline fonts...."
 if [ "$OS" == "ubuntu" ] ; then
-	sudo apt install fonts-powerline
+	sudo apt install fonts-powerline zsh
 elif [ "$OS" == "manjaro" ] ; then
 	sudo pacman -S powerline-fonts
 fi
