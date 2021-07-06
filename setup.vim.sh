@@ -55,6 +55,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 autocmd vimenter * ++nested colorscheme gruvbox
+set background=dark
 let g:airline#extensions#tabline#buffer_nr_show = 1" >> ~/.vimrc
 echo -e "\n"
 
