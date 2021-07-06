@@ -34,9 +34,9 @@ echo -e "\n"
 # Install powerline fonts
 echo "[+] Installing powerline fonts...."
 if [ "$OS" == "ubuntu" ] ; then
-	sudo apt install fonts-powerline
+	sudo apt install fonts-powerline lsd
 elif [ "$OS" == "manjaro" ] ; then
-	sudo pacman -S powerline-fonts
+	sudo pacman -S powerline-fonts lsd
 fi
 echo -e "\n"
 
@@ -69,4 +69,8 @@ echo -e "\n"
 
 echo "[+] Installing Bundle: GitGutter..."
 git clone https://github.com/airblade/vim-gitgutter
+echo -e "\n"
+
+echo "[+] Installing Theme: Gruvbox..."
+git clone https://github.com/morhetz/gruvbox.git
 echo -e "\n"
