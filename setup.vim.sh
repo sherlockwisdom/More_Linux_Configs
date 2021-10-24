@@ -56,8 +56,22 @@ let g:airline_powerline_fonts = 1
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 autocmd vimenter * ++nested colorscheme gruvbox
 set background=dark
-let g:airline#extensions#tabline#buffer_nr_show = 1" >> ~/.vimrc
+let g:airline#extensions#tabline#buffer_nr_show = 1
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0 " >> ~/.vimrc
 echo -e "\n"
+
+echo "[+] Installing Bundle: Syntastic..."
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+cd ~/.vim/bundle && \
+git clone --depth=1 https://github.com/vim-syntastic/syntastic.git
 
 echo "[+] Installing Bundle: Airline..."
 cd ~/.vim/bundle
